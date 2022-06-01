@@ -10,5 +10,7 @@ Class::Class(const int value, const in suit) : value_(value), suit_(suit) {
 string Card::ToString(const bool compressed) const {
 	if (compressed)
 		return ToShortString();
+	else
+		return ToLongString();
 }
 
