@@ -22,3 +22,4 @@ Deck::Deck() :
 
 	
 string Deck::ToHashString() const {
+	string card_list;
