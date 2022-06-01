@@ -33,5 +33,6 @@ string Deck::ToHashString() const {
 string Deck::ToString() const {
 	string cardcount = PokerUtils::AutoToString(GetCount());
 	string retval = "Deck of " + cardcount + " Cards";
+	return retval;
 	
 }
