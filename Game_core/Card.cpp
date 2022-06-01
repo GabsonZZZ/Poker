@@ -14,3 +14,7 @@ string Card::ToString(const bool compressed) const {
 		return ToLongString();
 }
 
+std::ostream& operator<<(std::ostream& os, const Card& card) {
+	os << card.ToString();
+	return os;
+}
