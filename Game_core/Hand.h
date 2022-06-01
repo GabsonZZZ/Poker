@@ -27,7 +27,8 @@ typedef struct _HandValue {
 
 class Hand{
 public:
-  	size_t GetCardCount() const { return m_hand.size(); }
+	const Card& operator[](int position) const; 
+	size_t GetCardCount() const { return m_hand.size(); }
 	
 	const HandValue& GetBestHandValue() const { return m_best_hand; }
 	std::string GetHandTextualDescription() const;
