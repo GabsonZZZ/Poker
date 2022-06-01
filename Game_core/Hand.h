@@ -31,6 +31,6 @@ public:
   	int hand_compare(const Hand* hand1, const Hand* hand2);
 	
 	
-	const HandValue& GetBestHandValue() const 
+	const HandValue& GetBestHandValue() const { return m_best_hand; }
 private:
 };
