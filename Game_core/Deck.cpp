@@ -27,3 +27,6 @@ string Deck::ToHashString() const {
 	
 	for (const Card& card : m_deck)
 		card_list += card.ToShortString();
+	
+	return card_list;
+}
