@@ -30,3 +30,5 @@ string Deck::ToHashString() const {
 	
 	return card_list;
 }
+string Deck::ToString() const {
+	string cardcount = PokerUtils::AutoToString(GetCount());
