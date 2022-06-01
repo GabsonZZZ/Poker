@@ -26,3 +26,4 @@ string Deck::ToHashString() const {
 	card_list.reserve((CARDS_IN_DECK * 2) + 1);
 	
 	for (const Card& card : m_deck)
+		card_list += card.ToShortString();
