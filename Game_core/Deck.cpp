@@ -34,5 +34,10 @@ string Deck::ToString() const {
 	string cardcount = PokerUtils::AutoToString(GetCount());
 	string retval = "Deck of " + cardcount + " Cards";
 	return retval;
+}
+ostream& operator<<(ostream& os, const Deck& dk) {
+	os << dk.ToString();
+	return os;
+}
 	
 }
