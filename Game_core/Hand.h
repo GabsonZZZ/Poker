@@ -33,6 +33,7 @@ public:
 	
 	const HandValue& GetBestHandValue() const { return m_best_hand; }
 	std::string GetHandTextualDescription() const;
-	std::string ToString()
+	std::string ToString() const;
+
 private:
 };
