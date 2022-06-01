@@ -19,3 +19,6 @@ Deck::Deck() :
 	}
 	random_shuffle(m_deck.begin(), m_deck.end());
 }
+
+	
+string Deck::ToHashString()
