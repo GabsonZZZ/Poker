@@ -28,12 +28,11 @@ typedef struct _HandValue {
 class Hand{
 public:
   	size_t GetCardCount() const { return m_hand.size(); }
-  	int hand_compare(const Hand* hand1, const Hand* hand2);
-	
 	
 	const HandValue& GetBestHandValue() const { return m_best_hand; }
 	std::string GetHandTextualDescription() const;
 	std::string ToString() const;
-
 private:
 };
+
+int hand_compare(const Hand* hand1, const Hand* hand2);
