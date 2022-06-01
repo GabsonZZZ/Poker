@@ -21,4 +21,4 @@ Deck::Deck() :
 }
 
 	
-string Deck::ToHashString()
+string Deck::ToHashString() const {
