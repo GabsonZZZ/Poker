@@ -33,6 +33,8 @@ public:
 	std::string GetHandTextualDescription() const;
 	std::string ToString() const;
 private:
+	
+	HandValue m_best_hand;
 };
 
 int hand_compare(const Hand* hand1, const Hand* hand2);
