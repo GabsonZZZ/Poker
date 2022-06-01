@@ -36,3 +36,4 @@ private:
 };
 
 int hand_compare(const Hand* hand1, const Hand* hand2);
+std::ostream& operator<<(std::ostream& os, const Hand& hand);
