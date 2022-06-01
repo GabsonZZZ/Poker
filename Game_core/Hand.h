@@ -33,6 +33,7 @@ public:
 	std::string GetHandTextualDescription() const;
 	std::string ToString() const;
 private:
+	std::vector<Card> m_hand;
 	
 	HandValue m_best_hand;
 };
