@@ -24,3 +24,5 @@ Deck::Deck() :
 string Deck::ToHashString() const {
 	string card_list;
 	card_list.reserve((CARDS_IN_DECK * 2) + 1);
+	
+	for (const Card& card : m_deck)
