@@ -24,5 +24,21 @@ const int HIGHEST_SUIT_VALUE = SPADES;
 const int LOWEST_CARD_VALUE = 2;
 const int HIGHEST_CARD_VALUE = ACE;
 
+class Card {
+	
+	public:
+  int m_value;
+		int m_suit;
+		Card(const int value, const int suit);
+		const int GetSuit() const { return m_suit; }
+		const int GetValue() const { return m_value; }
+		const bool IsSuit(const int suit) const { return (suit == m_suit); }
+		const bool IsValue(const int value) const { return (value == m_value); }
+
+		std::string ToString(bool compressed = false) const;
+		std::string ToShortString() const;
+		std::string ToLongString() const;
+
+
 
 #endif
