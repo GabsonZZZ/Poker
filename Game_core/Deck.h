@@ -3,7 +3,9 @@
 #include <string>
 
 class Deck {
-
+  publlic:
+    Deck();
+  private:
 		std::vector<Card> deck_;
 		int pos_;
 };
