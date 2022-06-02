@@ -52,3 +52,7 @@ std::ostream& operator<<(std::ostream& os, const Card& card) {
 	os << card.ToString();
 	return os;
 }
+string CardSuitToString(const int suit) {
+	switch (suit) {
+		
+}
