@@ -1,3 +1,6 @@
+#ifndef DECK_H_
+#define DECK_H_
+
 
 #include <vector>
 #include <string>
@@ -21,3 +24,6 @@ class Deck {
 
 std::ostream& operator<<(std::ostream& os, const Deck& deck);
 
+}
+
+#endif
