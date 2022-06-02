@@ -54,5 +54,9 @@ std::ostream& operator<<(std::ostream& os, const Card& card) {
 }
 string CardSuitToString(const int suit) {
 	switch (suit) {
+		case (CLUBS):
+			return "Clubs";
+		
+	}
 		
 }
