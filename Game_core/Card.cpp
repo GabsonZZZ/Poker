@@ -13,7 +13,11 @@ string Card::ToString(const bool compressed) const {
 	else
 		return ToLongString();
 }
+string Card::ToShortString() const {
 
+	string retval;
+
+	
 std::ostream& operator<<(std::ostream& os, const Card& card) {
 	os << card.ToString();
 	return os;
