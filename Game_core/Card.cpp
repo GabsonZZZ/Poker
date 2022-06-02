@@ -56,6 +56,11 @@ std::ostream& operator<<(std::ostream& os, const Card& card) {
 bool operator==(const Card& c1, const Card& c2) {
 	return (c1.GetSuit() == c2.GetSuit() && c1.GetValue() == c2.GetValue());
 }
+
+string CardValueToString(const int value, bool expandFaceName) {
+
+
+
 string CardSuitToString(const int suit) {
 	switch (suit) {
 		case (CLUBS):
