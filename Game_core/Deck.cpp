@@ -23,6 +23,21 @@ Deck::Deck() :
 	random_shuffle(m_deck.begin(), m_deck.end());
 }
 
+const Card& Deck::Top() {
+	assert(m_pos > 0);
+
+	m_pos--;
+	return m_deck[m_pos];
+}
+
+void Deck::Burn() {
+	assert(m_pos > 0);
+	m_pos--;
+}
+
+int Deck::GetCount() const {
+	return m_pos;
+}	
 	
 string Deck::ToHashString() const {
 	string card_list;
@@ -33,11 +48,13 @@ string Deck::ToHashString() const {
 	
 	return card_list;
 }
+	
 string Deck::ToString() const {
 	string cardcount = PokerUtils::AutoToString(GetCount());
 	string retval = "Deck of " + cardcount + " Cards";
 	return retval;
 }
+	
 ostream& operator<<(ostream& os, const Deck& dk) {
 	os << dk.ToString();
 	return os;
