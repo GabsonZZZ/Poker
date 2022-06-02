@@ -1,6 +1,8 @@
 #ifndef CARD_H_
 #define CARD_H_
 
+#include <string>
+
 enum SUIT {
     CLUBS = 0,
     DIAMONDS = 1,
@@ -8,7 +10,7 @@ enum SUIT {
     SPADES = 3
 };
 
-#include <string>
+
 
 enum FACE_CARDS {
     JACK = 11,
@@ -29,10 +31,10 @@ class Card {
 	public:
   
 		Card(const int value, const int suit);
-		const int GetSuit() const { return m_suit; }
-		const int GetValue() const { return m_value; }
-		const bool IsSuit(const int suit) const { return (suit == m_suit); }
-		const bool IsValue(const int value) const { return (value == m_value); }
+		const int GetSuit() const { return suit_; }
+		const int GetValue() const { return value_; }
+		const bool IsSuit(const int suit) const { return (suit == suit_); }
+		const bool IsValue(const int value) const { return (value == value_); }
 
 		std::string ToString(bool compressed = false) const;
 		std::string ToShortString() const;
