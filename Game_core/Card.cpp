@@ -58,7 +58,10 @@ string CardSuitToString(const int suit) {
 			return "Clubs";
 		case (SPADES):
 			return "Spades";
-		
+		case (DIAMONDS):
+			return "Diamonds";
+		default:
+			return "Hearts";
 	}
 		
 }
