@@ -44,13 +44,17 @@ string Card::ToShortString() const {
 	}
 
 	return retval;
-	
-
-
+}
+string Card::ToLongString() const {
+	return CardValueToString(m_value) + " of " + CardSuitToString(m_suit);
+}
 	
 std::ostream& operator<<(std::ostream& os, const Card& card) {
 	os << card.ToString();
 	return os;
+}
+bool operator==(const Card& c1, const Card& c2) {
+	return (c1.GetSuit() == c2.GetSuit() && c1.GetValue() == c2.GetValue());
 }
 string CardSuitToString(const int suit) {
 	switch (suit) {
