@@ -46,5 +46,12 @@ class Card {
 		int suit_;
 };
 
+std::ostream& operator<<(std::ostream& os, const Card& card);
+bool operator==(const Card& c1, const Card& c2);
+
+std::string CardValueToString(const int value, bool expandFaceName = false);
+std::string CardSuitToString(const int suit);
+
+}
 
 #endif
