@@ -27,8 +27,7 @@ const int HIGHEST_CARD_VALUE = ACE;
 class Card {
 	
 	public:
-  int m_value;
-		int m_suit;
+  
 		Card(const int value, const int suit);
 		const int GetSuit() const { return m_suit; }
 		const int GetValue() const { return m_value; }
@@ -39,6 +38,10 @@ class Card {
 		std::string ToShortString() const;
 		std::string ToLongString() const;
 
+  private:
+
+    int value_;
+		int suit_;
 
 
 #endif
