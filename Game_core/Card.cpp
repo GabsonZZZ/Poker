@@ -16,6 +16,10 @@ string Card::ToString(const bool compressed) const {
 string Card::ToShortString() const {
 
 	string retval;
+if (m_value < 11)
+		retval = CardValueToString(m_value);
+	
+
 
 	
 std::ostream& operator<<(std::ostream& os, const Card& card) {
