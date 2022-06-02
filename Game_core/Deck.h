@@ -5,6 +5,10 @@
 class Deck {
   publlic:
     Deck();
+    const Card& Top();
+
+		void Burn();
+		int GetCount() const;
   private:
 		std::vector<Card> deck_;
 		int pos_;
