@@ -31,8 +31,10 @@ else if (m_value == JACK)
 		case (HEARTS):
 			retval += "H";
 			break;
+		case (CLUBS):
+			retval += "C";
+			break;
 		
-	
 
 
 	
