@@ -9,6 +9,10 @@ class Deck {
 
 		void Burn();
 		int GetCount() const;
+    std::string ToHashString() const;
+
+		std::string ToString() const;
+
   private:
 		std::vector<Card> deck_;
 		int pos_;
