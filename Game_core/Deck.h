@@ -6,6 +6,11 @@
 #include <string>
 #include "Card.h"
 
+namespace GameEngineCore {
+
+const int CARDS_IN_DECK = 52;
+
+
 class Deck {
   publlic:
     Deck();
