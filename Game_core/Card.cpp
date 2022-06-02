@@ -27,7 +27,11 @@ else if (m_value == JACK)
 	else if (m_value == ACE)
 		retval = "A";
 
-	
+	switch (m_suit) {
+		case (HEARTS):
+			retval += "H";
+			break;
+		
 	
 
 
