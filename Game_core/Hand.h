@@ -27,6 +27,9 @@ typedef struct _HandValue {
 
 class Hand{
 public:
+  Hand();
+
+	void AddCard(const Card& card);
 	const Card& operator[](int position) const; 
 	size_t GetCardCount() const { return m_hand.size(); }
 	
@@ -34,6 +37,21 @@ public:
 	std::string GetHandTextualDescription() const;
 	std::string ToString() const;
 private:
+
+  void CalculateHandScore();
+	const Card* GetCardPtr(int suit, int value) const;
+	const Card* GetCardPtrAnySuit(int value) const;
+
+    const HandValue GetStraightFlushValue() const;
+    const HandValue GetFourOfAKindValue() const;
+    const HandValue GetFullHouseValue() const;
+    const HandValue GetFlushValue() const;
+    const HandValue GetStraightValue() const;
+    const HandValue GetThreeOfAKindValue() const;
+    const HandValue GetTwoPairValue() const;
+    const HandValue GetPairValue() const;
+    const HandValue GetHighCardValue() const;
+
 	std::vector<Card> m_hand;
 	
 	HandValue m_best_hand;
