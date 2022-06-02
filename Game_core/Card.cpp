@@ -1,5 +1,6 @@
 #include "Card.h"
 
+namespace GameEngineCore {
 
 Card::Card(const int value, const int suit) : value_(value), suit_(suit) {
 	assert(suit_ == HEARTS || suit_ == CLUBS || suit_ == DIAMONDS || suit_ == SPADES);
@@ -90,3 +91,4 @@ std::string CardSuitToString(const int suit){
 			return "Hearts";
 	}
   }
+}

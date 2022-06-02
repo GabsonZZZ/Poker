@@ -5,6 +5,9 @@
 #include <string>
 #include <vector>
 
+namespace GameEngineCore {
+
+
 enum HandType {
 	HT_NO_HAND,
 	HT_HIGH_CARD,

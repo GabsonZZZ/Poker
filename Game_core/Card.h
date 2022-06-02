@@ -4,6 +4,8 @@
 #include <string>
 #include <assert.h>
 
+namespace GameEngineCore {
+
 enum SUIT {
     CLUBS = 0,
     DIAMONDS = 1,
