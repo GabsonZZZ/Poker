@@ -17,5 +17,12 @@ enum FACE_CARDS {
     ACE = 3
 };
 
+const int NUM_SUITS = 4;
+const int LOWEST_SUIT_VALUE = CLUBS; 
+const int HIGHEST_SUIT_VALUE = SPADES;
+
+const int LOWEST_CARD_VALUE = 2;
+const int HIGHEST_CARD_VALUE = ACE;
+
 
 #endif
