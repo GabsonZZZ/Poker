@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <string>
+#include "Card.h"
 
 class Deck {
   publlic:
