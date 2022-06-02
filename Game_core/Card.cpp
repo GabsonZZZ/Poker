@@ -42,7 +42,7 @@ else if (m_value == JACK)
 			break;
 	}
 
-	
+	return retval;
 	
 
 
