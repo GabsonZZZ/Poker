@@ -1,7 +1,7 @@
 #include "Card.h"
 
 
-Class::Class(const int value, const in suit) : value_(value), suit_(suit) {
+Card::Card(const int value, const int suit) : value_(value), suit_(suit) {
 	assert(suit_ == HEARTS || suit_ == CLUBS || suit_ == DIAMONDS || suit_ == SPADES);
 	assert(value_ >= LOWEST_CARD_VALUE && value_ <= HIGHEST_CARD_VALUE);
 }
@@ -17,18 +17,18 @@ string Card::ToShortString() const {
 
 	string retval;
 	
-	if (value < 11)
+	if (value_ < 11)
 		retval = CardValueToString(value);
-	else if (value == JACK)
+	else if (value_ == JACK)
 		retval = "J";
-	else if (value == QUEEN)
+	else if (value_ == QUEEN)
 		retval = "Q";
-	else if (value == KING)
+	else if (value_ == KING)
 		retval = "K";
-	else if (value == ACE)
+	else if (value_ == ACE)
 		retval = "A";
 
-	switch (suit) {
+	switch (suit_) {
 		case (HEARTS):
 			retval += "H";
 			break;
@@ -46,7 +46,7 @@ string Card::ToShortString() const {
 	return retval;
 }
 string Card::ToLongString() const {
-	return CardValueToString(value) + " of " + CardSuitToString(suit);
+	return CardValueToString(value_) + " of " + CardSuitToString(suit_);
 }
 	
 std::ostream& operator<<(std::ostream& os, const Card& card) {
@@ -76,9 +76,9 @@ string CardValueToString(const int value, bool expandFaceName) {
 		}
 	} else
 		return PokerUtils::AutoToString(value);
+  }
 
-
-string CardSuitToString(const int suit) {
+string CardSuitToString(const int suit){
 	switch (suit) {
 		case (CLUBS):
 			return "Clubs";
@@ -89,5 +89,4 @@ string CardSuitToString(const int suit) {
 		default:
 			return "Hearts";
 	}
-		
-}
+  }
