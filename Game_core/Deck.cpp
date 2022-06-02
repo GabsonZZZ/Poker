@@ -3,6 +3,8 @@
 #include "Deck.h"
 #include "CommonFunctions.h"
 
+using namespace std;
+
 namespace GameEngineCore {
 
 Deck::Deck() :
@@ -17,6 +19,7 @@ Deck::Deck() :
 		m_deck.push_back(Card(value, DIAMONDS));
 		m_deck.push_back(Card(value, SPADES));
 	}
+		
 	random_shuffle(m_deck.begin(), m_deck.end());
 }
 
