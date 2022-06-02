@@ -34,7 +34,16 @@ else if (m_value == JACK)
 		case (CLUBS):
 			retval += "C";
 			break;
-		
+		case (DIAMONDS):
+			retval += "D";
+			break;
+		case (SPADES):
+			retval += "S";
+			break;
+	}
+
+	
+	
 
 
 	
