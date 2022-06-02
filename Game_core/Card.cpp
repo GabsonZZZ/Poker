@@ -56,6 +56,8 @@ string CardSuitToString(const int suit) {
 	switch (suit) {
 		case (CLUBS):
 			return "Clubs";
+		case (SPADES):
+			return "Spades";
 		
 	}
 		
