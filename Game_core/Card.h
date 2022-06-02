@@ -11,10 +11,10 @@ enum SUIT {
 #include <string>
 
 enum FACE_CARDS {
-    JACK = 0,
-    QUEEN = 1,
-    KING = 2,
-    ACE = 3
+    JACK = 11,
+    QUEEN = 12,
+    KING = 13,
+    ACE = 14
 };
 
 const int NUM_SUITS = 4;
@@ -42,6 +42,7 @@ class Card {
 
     int value_;
 		int suit_;
+};
 
 
 #endif
