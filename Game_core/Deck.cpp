@@ -8,42 +8,42 @@ using namespace std;
 namespace GameEngineCore {
 
 Deck::Deck() :
-	m_deck(),
-	m_pos(CARDS_IN_DECK)
+	deck_(),
+	pos_(CARDS_IN_DECK)
 {
-	m_deck.reserve(CARDS_IN_DECK);
+	deck_.reserve(CARDS_IN_DECK);
 
 	for (int value = LOWEST_CARD_VALUE; value <= HIGHEST_CARD_VALUE; value++) {
-		m_deck.push_back(Card(value, HEARTS));
-		m_deck.push_back(Card(value, CLUBS));
-		m_deck.push_back(Card(value, DIAMONDS));
-		m_deck.push_back(Card(value, SPADES));
+		deck_.push_back(Card(value, HEARTS));
+		deck_.push_back(Card(value, CLUBS));
+		deck_.push_back(Card(value, DIAMONDS));
+		deck_.push_back(Card(value, SPADES));
 	}
 		
-	random_shuffle(m_deck.begin(), m_deck.end());
+	random_shuffle(deck_.begin(), deck_.end());
 }
 
 const Card& Deck::Top() {
-	assert(m_pos > 0);
+	assert(pos_ > 0);
 
-	m_pos--;
-	return m_deck[m_pos];
+	pos_--;
+	return deck_[pos_];
 }
 
 void Deck::Burn() {
-	assert(m_pos > 0);
-	m_pos--;
+	assert(pos_ > 0);
+	pos_--;
 }
 
 int Deck::GetCount() const {
-	return m_pos;
+	return pos_;
 }	
 	
 string Deck::ToHashString() const {
 	string card_list;
 	card_list.reserve((CARDS_IN_DECK * 2) + 1);
 	
-	for (const Card& card : m_deck)
+	for (const Card& card : deck_)
 		card_list += card.ToShortString();
 	
 	return card_list;
