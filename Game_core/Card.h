@@ -2,6 +2,7 @@
 #define CARD_H_
 
 #include <string>
+#include <assert.h>
 
 enum SUIT {
     CLUBS = 0,
