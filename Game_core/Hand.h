@@ -1,3 +1,5 @@
+//Reprezentuje karty, jakie gracz posiada na swojej ręce (2 z rozdania oraz 5 z wyłożenia na stół, z tego wybrane 5 do najlepszej kombinacji)
+
 #ifndef HAND_H_
 #define HAND_H_
 
