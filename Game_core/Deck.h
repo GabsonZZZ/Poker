@@ -1,3 +1,5 @@
+//Reprezentuje talię kart - używane do losowania kart dla graczy oraz kart na stół
+
 #ifndef DECK_H_
 #define DECK_H_
 
