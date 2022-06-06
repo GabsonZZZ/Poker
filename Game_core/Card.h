@@ -1,3 +1,5 @@
+//Pliki Card.h oraz Card.cpp reprezentują kartę w grze
+
 #ifndef CARD_H_
 #define CARD_H_
 
