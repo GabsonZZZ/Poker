@@ -1,3 +1,5 @@
+//Reprezentuje prostą funkcję używaną w trakcie programowania innych funkcji
+
 #ifndef COMMONFUNCTIONS_H_
 #define COMMONFUNCTIONS_H_
 
