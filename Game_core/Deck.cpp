@@ -5,7 +5,7 @@
 
 using namespace std;
 
-namespace GameEngineCore {
+namespace GameEngineCor {
 
 Deck::Deck() :
 	deck_(),
