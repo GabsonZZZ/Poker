@@ -21,3 +21,10 @@ def play(player: Player, current_bet: int, balance: int) -> int:               #
 ###     def decrease_balance(self, change):     
 ###          self.balance -= change
 
+
+last_bet = 0                                            #do wyrzucenia stąd, na razie jest, zeby bylo cokolwiek o tej nazwie             
+
+def call(player: Player, balance: int) -> None:         #sprawdzenie (nie wiem co tu mam wpisac, bo to co  bedzie w tej funkcji zalezy od tego co potem)
+    if last_bet == 0:
+        raise ValueError
+    balance -= last_bet
