@@ -53,3 +53,10 @@ def call(player: Player, balance: int) -> None:         #sprawdzenie
 
 def check() -> None:              #tj. nie rob nic, jest tak dla ozdoby
     pass
+
+
+def turn(current_deck: List[Card], current_flop: List[Card]) -> None:
+    card4 = random.choice(current_deck)
+    current_deck.remove(card4)
+    current_flop.append(card4)                                              #dodaje te karte do tych 3 co byly wylozone wczesniej
+    print("Karta 4: {}".format(card4))                                      #wypisuje jaka to karta
