@@ -49,3 +49,7 @@ def call(player: Player, balance: int) -> None:         #sprawdzenie
 ### def set_flop(self, new_flop) -> None:
 ###     flop = deepcopy(new_flop)
 ### ^(wtedy oczywiscie from copy import deepcopy);
+
+
+def check() -> None:              #tj. nie rob nic, jest tak dla ozdoby
+    pass
