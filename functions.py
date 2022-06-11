@@ -24,7 +24,7 @@ def play(player: Player, current_bet: int, balance: int) -> int:               #
 
 last_bet = 0                                            #do wyrzucenia stąd, na razie jest, zeby bylo cokolwiek o tej nazwie             
 
-def call(player: Player, balance: int) -> None:         #sprawdzenie (nie wiem co tu mam wpisac, bo to co  bedzie w tej funkcji zalezy od tego co potem)
+def call(player: Player, balance: int) -> None:         #sprawdzenie
     if last_bet == 0:
         raise ValueError
-    balance -= last_bet
+    balance -= last_bet                                 #znowu przydałby player.balance; gracz stawia tyle, ile ostatni zaklad
