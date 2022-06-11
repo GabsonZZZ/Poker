@@ -35,12 +35,11 @@ def call(player: Player, balance: int) -> None:         #sprawdzenie
     
  def flop(current_deck: List[Card]) -> List[Card]:
     card1 = random.choice(current_deck)                         #wybór 3 kart i usuniecie ich z decku
-    current_deck.cards.remove(card1)                            #idk czy one powinny byc losowe czy z poczatku
+    current_deck.remove(card1)                                  #idk czy one powinny byc losowe czy z poczatku
     card2 = random.choice(current_deck)
-    current_deck.cards.remove(card2)
+    current_deck.remove(card2)
     card3 = random.choice(current_deck)
-    current_deck.cards.remove(card3)
-    deck.deck_update(current_deck)
+    current_deck.remove(card3)
     print("Karta 1: {} {}".format(card1.suit, card1.value))     #wypisywanie, jakie to są karty
     print("Karta 2: {} {}".format(card2.suit, card2.value))
     print("Karta 3: {} {}".format(card3.suit, card3.value))
