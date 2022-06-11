@@ -60,3 +60,12 @@ def turn(current_deck: List[Card], current_flop: List[Card]) -> None:
     current_deck.remove(card4)
     current_flop.append(card4)                                              #dodaje te karte do tych 3 co byly wylozone wczesniej
     print("Karta 4: {}".format(card4))                                      #wypisuje jaka to karta
+    
+    
+def river(current_deck: List[Card], current_flop: List[Card]) -> None:
+    card5 = random.choice(current_deck)
+    current_deck.remove(card5)
+    current_flop.append(card5)                                              #dodaje tą karte do tych 5 co byly wylozone wczesniej
+    print("Karta 5: {}".format(card5))                                      #wypisuje jaka to karta
+    
+### to jest w sumie funkcja analogiczna to turn, mozliwe, ze daloby sie je obie polaczyc w jedna, ale nie wiem, czy nie psuje to wtedy czytelnosci 
