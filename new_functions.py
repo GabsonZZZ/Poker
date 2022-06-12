@@ -78,3 +78,28 @@ def full_house(cards: List[Card], player: Player) -> None:
     if (3 in values_freq) and (2 in values_freq):               #tj. jesli jakas wartosc jest 3 razy i jakas inna jest 2 razy
         print("Full house! Zyskujesz {} punktow".format(score))
         player.new_score(score)
+
+        
+ def flush(cards: List[Card], player: Player) -> None:
+    score = 6
+    card1 = cards[0]
+    if len(cards) != 5:                         #jak gracz wybrał za mało kart to naura już dalej nie sprawdzane
+        return None
+    for card in cards:
+        if card.suit != card1.suit:             #karty mają miec ten sam suit, wiec jak jakas ma inny niz ta pierwsza to tez naura
+            return None
+    values = []
+    for card in cards:                          #utworzenie listy, ktora przechowuje tylko wartosci kart
+        values.append(card.value)
+    values.sort()                               #posortowanie jej (od min do max)
+    i = 0
+    count = 0
+    while i < len(values) - 2:                  #dopoki nie wyjdzie poza zakres listy
+        if values[i + 1] - values[1] == 1:      #jesli roznica jest 1 to liczy ile jest takich roznic
+            count += 1
+        i += 1
+    if count == 4:                              #wtedy chyba jest sekwencja, czyli zle
+        return None
+    print("Flush! Zyskujesz {} punktow".format(score))
+    player.new_score(score)
+       
