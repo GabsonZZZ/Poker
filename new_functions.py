@@ -48,3 +48,15 @@ def straight_flush(cards: List[Card], player: Player) -> None:
             return None
     print("Straight flush! Zyskujesz {} punktow".format(score))
     player.new_score(score)
+
+    
+def four_of_a_kind(cards: List[Card], player: Player) -> None:      
+    score = 8
+    card1 = cards[0]
+    if len(cards) != 4:
+        return None
+    for card in cards:
+        if card.value != card1.value:                           #jesli jakas wartosc jest inna to konczy
+            return None
+    print("Four of a kind! Zyskujesz {} punktow".format(score))
+    player.new_score(score)    
