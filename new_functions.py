@@ -62,4 +62,19 @@ def four_of_a_kind(cards: List[Card], player: Player) -> None:
     player.new_score(score)    
 
     
-card_values = [] #lista ze wszystkimi wartosciami, nie pamietam czy istnieje, mozliwe, ze tak jets
+card_values = [] #lista ze wszystkimi wartosciami, nie pamietam czy istnieje, mozliwe, ze tak jest
+
+
+def full_house(cards: List[Card], player: Player) -> None:
+    score = 7
+    if len(cards) != 5:
+        return None
+    values = []
+    values_freq = []
+    for card in cards:                                          #tworzenie listy samych wartosci z kart
+        values.append(card.value)
+    for value in card_values:                                   #zlicz ile razy dana wartosc jest w liscie values i dodaj ten licznik do values_freq (powtorki nie wplywaja na to i tak)
+        values_freq.append(values.count(value))
+    if (3 in values_freq) and (2 in values_freq):               #tj. jesli jakas wartosc jest 3 razy i jakas inna jest 2 razy
+        print("Full house! Zyskujesz {} punktow".format(score))
+        player.new_score(score)
