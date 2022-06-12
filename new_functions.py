@@ -36,3 +36,15 @@ def royal_flush(cards: List[Card], player: Player) -> None:
         #funckja w klasie ktora dodaje punkty
         ### w klasie Player przydałoby sie pole score - ile gracz ma aktualnie punktów
 
+
+#funkcja działająca podobnie/analogicznie do royal_flush        
+def straight_flush(cards: List[Card], player: Player) -> None:
+    score = 9
+    card1 = cards[0]
+    if len(cards) != 5:
+        return None
+    for card in cards:
+        if card.suit != card1.suit:
+            return None
+    print("Straight flush! Zyskujesz {} punktow".format(score))
+    player.new_score(score)
