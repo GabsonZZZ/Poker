@@ -60,3 +60,6 @@ def four_of_a_kind(cards: List[Card], player: Player) -> None:
             return None
     print("Four of a kind! Zyskujesz {} punktow".format(score))
     player.new_score(score)    
+
+    
+card_values = [] #lista ze wszystkimi wartosciami, nie pamietam czy istnieje, mozliwe, ze tak jets
