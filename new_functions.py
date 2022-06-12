@@ -103,3 +103,17 @@ def full_house(cards: List[Card], player: Player) -> None:
     print("Flush! Zyskujesz {} punktow".format(score))
     player.new_score(score)
        
+
+ 
+###funkcja robiaca liste liczby wartosci
+#napisana osobno, bo uzyta zostala chyba 2 razy w tych punktacjach, najwyzej tamte funkcje do edycji, zeby ja jakos wykorzystac
+def values_only(cards: List[Card]) -> List[int]:
+    values = []
+    for card in cards:
+        values.append(card.value)
+    return values
+
+
+###UWAGA ##################################
+### MOGĄ BYĆ TUTAJ BŁĘDY, POLECAM SPRAWDZIĆ (NIE BYŁY TESTOWANE), BO MOŻLIWE, ŻE JAKIEŚ WARUNKI ZOSTAŁY POMINIĘTE, ALBO DZIAŁAJĄ NIE TAK JAK POWINNY, BO ŹLE ZROZUMIAŁAM ZASADY
+
