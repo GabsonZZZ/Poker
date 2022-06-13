@@ -20,7 +20,7 @@ def choose_cards(player: Player, current_flop: List[Card]) -> List[Card]: #zwrac
     return cards
 
 
-def flush(cards: List[Card], player: Player) -> None:   #połączenie royal i straight flusha w 1 funckję
+def flush_royal_or_straight(cards: List[Card], player: Player) -> None:   #połączenie royal i straight flusha w 1 funckję
     score_royal_flush = 10                              #do zmiany moze byc ta ilosc punktow
     score_straight_flush = 9
     card1 = cards[0]
