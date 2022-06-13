@@ -1,7 +1,7 @@
 #### punktacja
 ### tutaj funkcja, w ktorej gracz wybiera karty do swojej kombinacji ###
 
-def choose_cards(player: Player, current_flop: List[Card]) -> List[Card]: #zwraca liste kart potrzebna do kolejnej funkcji
+def choose_cards(player: Player, current_flop: List[Card]) -> List[Card]: #zwraca liste kart potrzebna do funckji, które będą sprawdzały czy jest jakaś ta odpowiednia kombinacja
     cards = []
     i = 1
     for card in player.cards:                   #wybieranie ze swoich kart
