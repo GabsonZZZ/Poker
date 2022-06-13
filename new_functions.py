@@ -69,10 +69,10 @@ def full_house(cards: List[Card], player: Player) -> None:
  def flush(cards: List[Card], player: Player) -> None:
     score = 6
     card1 = cards[0]
-    if len(cards) != 5:                         #jak gracz wybrał za mało kart to naura już dalej nie sprawdzane
+    if len(cards) != 5:                         #jak gracz wybrał za mało kart to już dalej nie sprawdzane
         return None
     for card in cards:
-        if card.suit != card1.suit:             #karty mają miec ten sam suit, wiec jak jakas ma inny niz ta pierwsza to tez naura
+        if card.suit != card1.suit:             #karty mają miec ten sam suit, wiec jak jakas ma inny niz ta pierwsza to tez konczy
             return None
     values = values = values_only(cards)
     values.sort()                               #posortowanie jej (od min do max)
@@ -98,6 +98,4 @@ def values_only(cards: List[Card]) -> List[int]:
     return values
 
 
-###UWAGA ##################################
-### MOGĄ BYĆ TUTAJ BŁĘDY, POLECAM SPRAWDZIĆ (NIE BYŁY TESTOWANE), BO MOŻLIWE, ŻE JAKIEŚ WARUNKI ZOSTAŁY POMINIĘTE, ALBO DZIAŁAJĄ NIE TAK JAK POWINNY, BO ŹLE ZROZUMIAŁAM ZASADY
 
