@@ -57,10 +57,8 @@ def full_house(cards: List[Card], player: Player) -> None:
     score = 7
     if len(cards) != 5:
         return None
-    values = []
+    values = values = values_only(cards)
     values_freq = []
-    for card in cards:                                          #tworzenie listy samych wartosci z kart
-        values.append(card.value)
     for value in card_values:                                   #zlicz ile razy dana wartosc jest w liscie values i dodaj ten licznik do values_freq (powtorki nie wplywaja na to i tak)
         values_freq.append(values.count(value))
     if (3 in values_freq) and (2 in values_freq):               #tj. jesli jakas wartosc jest 3 razy i jakas inna jest 2 razy
@@ -76,9 +74,7 @@ def full_house(cards: List[Card], player: Player) -> None:
     for card in cards:
         if card.suit != card1.suit:             #karty mają miec ten sam suit, wiec jak jakas ma inny niz ta pierwsza to tez naura
             return None
-    values = []
-    for card in cards:                          #utworzenie listy, ktora przechowuje tylko wartosci kart
-        values.append(card.value)
+    values = values = values_only(cards)
     values.sort()                               #posortowanie jej (od min do max)
     i = 0
     count = 0
