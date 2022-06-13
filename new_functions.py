@@ -20,8 +20,9 @@ def choose_cards(player: Player, current_flop: List[Card]) -> List[Card]: #zwrac
     return cards
 
 
-def royal_flush(cards: List[Card], player: Player) -> None:
-    score = 10                              #do zmiany moze byc ta ilosc punktow
+def flush(cards: List[Card], player: Player) -> None:   #połączenie royal i straight flusha w 1 funckję
+    score_royal_flush = 10                              #do zmiany moze byc ta ilosc punktow
+    score_straight_flush = 9
     card1 = cards[0]
     if len(cards) != 5:
         return None
@@ -30,24 +31,11 @@ def royal_flush(cards: List[Card], player: Player) -> None:
             return None
     for card in cards:
         if not (card.value == 10 or card.value == 11 or card.value == 12 or card.value == 13 or card.value == 14) and (card != card1):
+            print("Straight flush! Zyskujesz {} punktow".format(score_straight_flush))
+            player.new_score(score_straight_flush)
             return None
-    print("Royal flush! Zyskujesz {} punktow".format(score))
-    player.new_score(score)
-        #funckja w klasie ktora dodaje punkty
-        ### w klasie Player przydałoby sie pole score - ile gracz ma aktualnie punktów
-
-
-#funkcja działająca podobnie/analogicznie do royal_flush        
-def straight_flush(cards: List[Card], player: Player) -> None:
-    score = 9
-    card1 = cards[0]
-    if len(cards) != 5:
-        return None
-    for card in cards:
-        if card.suit != card1.suit:
-            return None
-    print("Straight flush! Zyskujesz {} punktow".format(score))
-    player.new_score(score)
+    print("Royal flush! Zyskujesz {} punktow".format(score_royal_flush))
+    player.new_score(score_royal_flush)
 
     
 def four_of_a_kind(cards: List[Card], player: Player) -> None:      
