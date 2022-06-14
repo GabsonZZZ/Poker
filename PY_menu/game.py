@@ -83,6 +83,23 @@ class Game:
                 if set_dict[2] == 1 and set_dict[3] != 1 and set_dict[4] != 1:
                     print("Pair! Otrzymujesz {} punktów.".format(score))
                     return True, score;                     #do zmiany po ustaleniu wartości score
+                
+            def straight(self, cards: [Card]):
+                score = 500
+                if len(cards) != 5:
+                    return False, 0;
+                cards.sort(key=lambda x: x.value)
+                i = cards[0].value
+                found = cards[0].value == i and cards[1].value == i+1 and cards[2].value == i+2 and cards[3].value == i+3 and cards[4].value == i+4
+                if found == False:
+                    if cards[4].value == 14:
+                        i = 1
+                        found = cards[0].value == i+1 and cards[1].value == i+2 and cards[2].value == i+3 and cards[3].value == i+4
+                if found:
+                    print("Straight! Otrzymujesz {} punktów.".format(score))
+                    return True, score;
+                else:
+                    return False, 0;
                 elif set_dict[3] == 1 and set_dict[4] != 1:
                     score = 400
                     print("Three of a kind! Otrzymujesz {} punktów.".format(score))
