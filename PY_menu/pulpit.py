@@ -3,6 +3,9 @@ from pyfiglet import Figlet
 import game
 import os
 
+def print_red(x): return cprint(x, 'red')
+def print_green(x): return cprint(x, 'green')
+
 def clear_line():
     #Kasuje ostatnią linię
     print("                                                         ")
@@ -14,7 +17,9 @@ def clear():
         os.system('clear')
         
 f = Figlet(font='straight')
+
 def print_players()
+    pass
 
 def start_pulpit():
     global wins
