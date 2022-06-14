@@ -35,6 +35,9 @@ class Game:
                 dealer_card = self.deck.pop()
                 self.dealer.add_card(dealer_card)   
             print(self.players_list[0])
+      
+        def play_again(self):
+        pass
 
   
         def print_table(self,show_dealer_card : bool) -> None:
