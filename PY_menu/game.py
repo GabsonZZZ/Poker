@@ -155,3 +155,14 @@ class Game:
                 else:
                     return False, 0;
   
+             def flush(self, cards: [Card]):
+                    score = 600
+                    card1 = cards[0]
+                    if len(cards) != 5:
+                        return False, 0;
+                    for card in cards:
+                        if card.suit != card1.suit:
+                            return False, 0;
+                    print("Flush! Otrzymujesz {} punktów.".format(score))
+                    return True, score;
+               #dodanie kombinacji kart pokera
