@@ -21,6 +21,27 @@ class Game:
                          Card(suits_values[suit], card, values[card]))  # Dodanie karty o danych wartościach do stosu
                 random.shuffle(self.deck)  # Przetasowanie stosu kart
                 return self.deck
+        
+        def deal_cards(self):
+            self.dealer.cards = []                        #Czyszczenie kart dealera przed każdym rozdaniem
+            for i in range(len(self.players_list)):       #Pętla czyszcząca karty dla każdego gracza
+                self.players_list[i].cards = []
+                self.players_list[i].bet = 0
+                self.players_list[i].passed = False
+            for _ in range(2):                            #Rozdanie 2 kart dealerowi i dla każdego gracza
+                for player in range(len(self.players_list)):
+                    player_card = self.deck.pop()
+                    self.players_list[i].add_card(player_card)
+                dealer_card = self.deck.pop()
+                self.dealer.add_card(dealer_card)   
+            print(self.players_list[0])
+      
+        def play_again(self):
+        pass
+
+        def clear(self):
+          os.system('cls')
+  
         def print_table(self,show_dealer_card : bool) -> None:
                 player_size = 20
                 dealer_size = 14
@@ -60,6 +81,25 @@ class Game:
                 print("   ╱               ╲    Bet: {" + str(2*self.players_list[0].bet) + "}\n  ╱" + flop_chars + "\n ╱                   ╲   ")
                 print(player_hand_chars)
                 print((player_size + 3) * chr(8254))
+
+
+        def choose_cards(self) -> [Card]:
+          cards = []
+          for card in self.players_list[0].cards:
+              ans = input("Chcesz użyć karty {}? (W tym celu wpisz tak/nie)".format(card.symbol + card.suit))
+              if ans == "tak":
+                  cards.append(card)
+          for card in self.flop:
+              ans = input("Chcesz użyć karty {}? (W tym celu wpisz tak/nie)".format(card.symbol + card.suit))
+              if ans == "tak":
+                  if len(cards) < 5:
+                      cards.append(card)
+                  else:
+                      print("Wybrano już 5 kart!")
+                      break
+            return cards
+
+            
         def royal_flush(self, cards: [Card]):
                 score = 1000
                 cards.sort(key=lambda x: x.value)
@@ -155,3 +195,34 @@ class Game:
                 else:
                     return False, 0;
   
+            def flush(self, cards: [Card]):
+                  score = 600
+                  card1 = cards[0]
+                  if len(cards) != 5:
+                      return False, 0;
+                  for card in cards:
+                      if card.suit != card1.suit:
+                          return False, 0;
+                  print("Flush! Otrzymujesz {} punktów.".format(score))
+                    return True, score;
+               #dodanie kombinacji kart pokera
+
+            def points(self):
+                cards = self.choose_cards()
+                straight_found, straight_points = self.straight(cards)
+                flush_found, flush_points = self.flush(cards)
+                if straight_found and flush_found:
+                    royal_found, royal_points = self.royal_flush(cards)
+                    if royal_found:
+                        return royal_points
+                    else:
+                        return 900
+                elif straight_found:
+                    return straight_points
+                elif flush_found:
+                    return flush_points
+                pairs_found, pairs_points = self.pair_or_three_of_a_kind(cards, self.symbols)
+                if pairs_found:
+                    return pairs_points
+                high_found, high_points = self.high_card(cards)
+                return high_points # metoda warunkująca punkty za daną kombinację
