@@ -55,6 +55,20 @@ class Game:
                 print("   ╱               ╲    Bet: {" + str(2*self.players_list[0].bet) + "}\n  ╱" + flop_chars + "\n ╱                   ╲   ")
                 print(player_hand_chars)
                 print((player_size + 3) * chr(8254))
+        def royal_flush(self, cards: [Card]):
+                score = 1000
+                cards.sort(key=lambda x: x.value)
+                card1 = cards[0]
+                if len(cards) != 5:
+                    return False, 0;
+                if card1.value != 10:
+                    return False, 0;
+                for card in cards:
+                    if not (card.value == 10 or card.value == 11 or card.value == 12 or card.value == 13 or card.value == 14):
+                        return False, 0;
+                print("Royal Flush! Otrzymujesz {} punktów.".format(score))
+                return True, score;
+
 
         def pair_or_three_of_a_kind(self, cards: [Card], symbols):
                 score = 200
