@@ -93,6 +93,27 @@ class Game:
                 if set_dict[2] == 1 and set_dict[3] != 1 and set_dict[4] != 1:
                     print("Pair! Otrzymujesz {} punktów.".format(score))
                     return True, score;                     #do zmiany po ustaleniu wartości score
+                elif set_dict[3] == 1 and set_dict[4] != 1:
+                    score = 400
+                    print("Three of a kind! Otrzymujesz {} punktów.".format(score))
+                    return True, score;
+                elif set_dict[4] == 1:
+                    score = 700
+                    print("Four of a kind! Otrzymujesz {} punktów.".format(score))
+                    return True, score;
+                elif set_dict[2] == 1 and set_dict[3] == 1:
+                    score = 600
+                    print("Full house! Otrzymujesz {} punktów.".format(score))
+                    return True, score;
+                elif set_dict[2] == 2:
+                    score = 300
+                    print("Two pair! Otrzymujesz {} punktów.".format(score))
+                    return True, score;
+                else:
+                    return False, 0;
+                   #do zmiany po ustaleniu wartości score
+                
+                
                 
             def straight(self, cards: [Card]):
                 score = 500
