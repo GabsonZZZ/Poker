@@ -39,6 +39,8 @@ class Game:
         def play_again(self):
         pass
 
+        def clear(self):
+          os.system('cls')
   
         def print_table(self,show_dealer_card : bool) -> None:
                 player_size = 20
