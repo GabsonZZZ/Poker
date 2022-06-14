@@ -10,18 +10,18 @@ class Player:
                 self.cards = cards      #Aktualne posiadane przez gracza karty
                 self.bet = 0
         
-        def add_card(self, card):
+       def add_card(self, card):
                 self.cards.append(card)
 
 class Card:
-    def __init__(self, suit, symbol, value):
+       def __init__(self, suit, symbol, value):
         self.suit = suit #Kolor
         self.symbol = symbol #Symbol karty
         self.value = value #Wartość karty
 
 
 class Game:
-           def __init__(self, players_list, number_of_decks=1):
+       def __init__(self, players_list, number_of_decks=1):
                self.deck = []  # Stos kart
                self.dealer = Player([],'dealer')         #krupier jako gracz
                self.number_of_players = len(players_list)  # Liczba graczy
@@ -29,7 +29,7 @@ class Game:
                self.number_of_decks = number_of_decks  # Liczba użytych talii
                self.flop = []
                self.symbols = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
-        def stack_creation(self):
+       def stack_creation(self):
                 values = {"A": 14, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "J": 11, "Q": 12, "K": 13}
                 suits = ["Spades", "Hearts", "Clubs", "Diamonds"]
                 suits_values = {"Spades": "\u2660", "Hearts": "\u2665", "Clubs": "\u2663", "Diamonds": "\u2666"}
@@ -41,7 +41,7 @@ class Game:
                 random.shuffle(self.deck)  # Przetasowanie stosu kart
                 return self.deck
         
-        def deal_cards(self):
+       def deal_cards(self):
             self.dealer.cards = []                        #Czyszczenie kart dealera przed każdym rozdaniem
             for i in range(len(self.players_list)):       #Pętla czyszcząca karty dla każdego gracza
                 self.players_list[i].cards = []
