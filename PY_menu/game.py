@@ -4,6 +4,11 @@ import os
 
 
 
+class Player:
+
+        def add_card(self, card):
+                self.cards.append(card)
+
 class Game:
         def stack_creation(self):
                 values = {"A": 14, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "J": 11, "Q": 12, "K": 13}
@@ -68,7 +73,17 @@ class Game:
                         return False, 0;
                 print("Royal Flush! Otrzymujesz {} punktów.".format(score))
                 return True, score;
-
+        
+        
+        def high_card(self, cards: [Card]):
+                score = 1
+                card1 = cards[0]
+                if len(cards) != 5:
+                    return False, 0;
+                score = max([card.value for card in cards])
+                print("High Card! Otrzymujesz {} punktów.".format(score))     #do zmiany po ustaleniu wartości score
+                return True, score;
+     
 
         def pair_or_three_of_a_kind(self, cards: [Card], symbols):
                 score = 200
@@ -83,6 +98,27 @@ class Game:
                 if set_dict[2] == 1 and set_dict[3] != 1 and set_dict[4] != 1:
                     print("Pair! Otrzymujesz {} punktów.".format(score))
                     return True, score;                     #do zmiany po ustaleniu wartości score
+                elif set_dict[3] == 1 and set_dict[4] != 1:
+                    score = 400
+                    print("Three of a kind! Otrzymujesz {} punktów.".format(score))
+                    return True, score;
+                elif set_dict[4] == 1:
+                    score = 700
+                    print("Four of a kind! Otrzymujesz {} punktów.".format(score))
+                    return True, score;
+                elif set_dict[2] == 1 and set_dict[3] == 1:
+                    score = 600
+                    print("Full house! Otrzymujesz {} punktów.".format(score))
+                    return True, score;
+                elif set_dict[2] == 2:
+                    score = 300
+                    print("Two pair! Otrzymujesz {} punktów.".format(score))
+                    return True, score;
+                else:
+                    return False, 0;
+                   #do zmiany po ustaleniu wartości score
+                
+                
                 
             def straight(self, cards: [Card]):
                 score = 500
