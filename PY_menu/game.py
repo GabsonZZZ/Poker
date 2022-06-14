@@ -185,4 +185,4 @@ class Game:
                 if pairs_found:
                     return pairs_points
                 high_found, high_points = self.high_card(cards)
-                return high_points
+                return high_points # metoda warunkująca punkty za daną kombinację
