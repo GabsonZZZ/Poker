@@ -21,6 +21,22 @@ class Game:
                          Card(suits_values[suit], card, values[card]))  # Dodanie karty o danych wartościach do stosu
                 random.shuffle(self.deck)  # Przetasowanie stosu kart
                 return self.deck
+        
+        def deal_cards(self):
+            self.dealer.cards = []                        #Czyszczenie kart dealera przed każdym rozdaniem
+            for i in range(len(self.players_list)):       #Pętla czyszcząca karty dla każdego gracza
+                self.players_list[i].cards = []
+                self.players_list[i].bet = 0
+                self.players_list[i].passed = False
+            for _ in range(2):                            #Rozdanie 2 kart dealerowi i dla każdego gracza
+                for player in range(len(self.players_list)):
+                    player_card = self.deck.pop()
+                    self.players_list[i].add_card(player_card)
+                dealer_card = self.deck.pop()
+                self.dealer.add_card(dealer_card)   
+            print(self.players_list[0])
+
+  
         def print_table(self,show_dealer_card : bool) -> None:
                 player_size = 20
                 dealer_size = 14
