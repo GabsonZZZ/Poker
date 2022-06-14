@@ -13,7 +13,6 @@ def clear():
     if os.name == 'posix':
         os.system('clear')
         
-f = Figlet(font='straight')
 def print_players()
 
 def start_pulpit():
