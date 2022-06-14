@@ -20,6 +20,15 @@ class Card:
         self.value = value #Wartość karty
         
 class Game:
+        def __init__(self, players_list, number_of_decks=1):
+                self.deck = []  # Stos kart
+                self.dealer = Player([],'dealer')         #krupier jako gracz
+                self.number_of_players = len(players_list)  # Liczba graczy
+                self.players_list = players_list  # Lista graczy
+                self.number_of_decks = number_of_decks  # Liczba użytych talii
+                self.flop = []
+                self.symbols = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+
         def stack_creation(self):
                 values = {"A": 14, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "J": 11, "Q": 12, "K": 13}
                 suits = ["Spades", "Hearts", "Clubs", "Diamonds"]
@@ -31,6 +40,11 @@ class Game:
                          Card(suits_values[suit], card, values[card]))  # Dodanie karty o danych wartościach do stosu
                 random.shuffle(self.deck)  # Przetasowanie stosu kart
                 return self.deck
+        
+        def play_again(self):
+            pass
+        
+        
         def print_table(self,show_dealer_card : bool) -> None:
                 player_size = 20
                 dealer_size = 14
