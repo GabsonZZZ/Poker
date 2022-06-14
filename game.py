@@ -7,3 +7,5 @@ def stack_creation(self):
       for card in self.symbols:  # Pętla dla każdej karty w danym kolorze
          self.deck.append(
             Card(suits_values[suit], card, values[card]))  # Dodanie karty o danych wartościach do stosu
+   random.shuffle(self.deck)  # Przetasowanie stosu kart
+   return self.deck
