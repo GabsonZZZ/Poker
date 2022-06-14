@@ -16,7 +16,45 @@ class Game:
                          Card(suits_values[suit], card, values[card]))  # Dodanie karty o danych wartościach do stosu
                 random.shuffle(self.deck)  # Przetasowanie stosu kart
                 return self.deck
+        def print_table(self,show_dealer_card : bool) -> None:
+                player_size = 20
+                dealer_size = 14
 
+                player_cards = self.players_list[0].cards
+                dealer_cards = self.dealer.cards
+
+                player_n_chars = len(player_cards)
+                dealer_n_chars = len(dealer_cards)
+
+                init_space = int((player_size - dealer_size) / 2) + 2
+
+                self.clear()
+
+                player_hand_chars = ""
+                player_hand_chars += "╱" + int((player_size - 2 * player_n_chars) / 2) * " "
+                flop_chars = ""
+                flop_chars += " "
+                for card in player_cards:
+                    player_hand_chars = player_hand_chars + card.symbol + card.suit +  " "
+                player_hand_chars += (player_size - len(player_hand_chars) + 2) * " " + "╲"
+                for card in self.flop:
+                   flop_chars = flop_chars + card.symbol + card.suit + " "
+                flop_chars += (16 - (len(self.flop) + 2*len(self.flop))) * " " + "╲"
+
+                dealer_hand_chars = " "
+                dealer_hand_chars += "╱" + int((dealer_size - 2 * dealer_n_chars) / 2) * " "
+                if show_dealer_card == True:
+                    for card in dealer_cards:
+                        dealer_hand_chars = dealer_hand_chars + card.symbol + card.suit + " "
+                else:
+                    dealer_hand_chars = dealer_hand_chars + "[?] [?]"
+                dealer_hand_chars += (dealer_size - len(dealer_hand_chars) + 1) * " " + "╲"
+
+                print(init_space * " " + (dealer_size - 1) * "_")
+                print("   " + dealer_hand_chars)
+                print("   ╱               ╲    Bet: {" + str(2*self.players_list[0].bet) + "}\n  ╱" + flop_chars + "\n ╱                   ╲   ")
+                print(player_hand_chars)
+                print((player_size + 3) * chr(8254))
 
         def pair_or_three_of_a_kind(self, cards: [Card], symbols):
                 score = 200
