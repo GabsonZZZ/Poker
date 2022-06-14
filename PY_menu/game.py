@@ -81,6 +81,25 @@ class Game:
                 print("   ╱               ╲    Bet: {" + str(2*self.players_list[0].bet) + "}\n  ╱" + flop_chars + "\n ╱                   ╲   ")
                 print(player_hand_chars)
                 print((player_size + 3) * chr(8254))
+
+
+        def choose_cards(self) -> [Card]:
+          cards = []
+          for card in self.players_list[0].cards:
+              ans = input("Chcesz użyć karty {}? (W tym celu wpisz tak/nie)".format(card.symbol + card.suit))
+              if ans == "tak":
+                  cards.append(card)
+          for card in self.flop:
+              ans = input("Chcesz użyć karty {}? (W tym celu wpisz tak/nie)".format(card.symbol + card.suit))
+              if ans == "tak":
+                  if len(cards) < 5:
+                      cards.append(card)
+                  else:
+                      print("Wybrano już 5 kart!")
+                      break
+            return cards
+
+            
         def royal_flush(self, cards: [Card]):
                 score = 1000
                 cards.sort(key=lambda x: x.value)
