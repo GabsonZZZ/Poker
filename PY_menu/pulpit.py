@@ -3,6 +3,10 @@ from pyfiglet import Figlet
 import game
 import os
 
+def clear_line():
+    #Kasuje ostatnią linię
+    print("                                                         ")
+
 def clear():
     if os.name == 'nt':
         os.system('CLS')
@@ -49,3 +53,7 @@ def start_pulpit():
             clear()
             continue
     return (players_list, number_of_decks)
+
+
+def end_pulpit():
+    pass
