@@ -155,14 +155,34 @@ class Game:
                 else:
                     return False, 0;
   
-             def flush(self, cards: [Card]):
-                    score = 600
-                    card1 = cards[0]
-                    if len(cards) != 5:
-                        return False, 0;
-                    for card in cards:
-                        if card.suit != card1.suit:
-                            return False, 0;
-                    print("Flush! Otrzymujesz {} punktów.".format(score))
+            def flush(self, cards: [Card]):
+                  score = 600
+                  card1 = cards[0]
+                  if len(cards) != 5:
+                      return False, 0;
+                  for card in cards:
+                      if card.suit != card1.suit:
+                          return False, 0;
+                  print("Flush! Otrzymujesz {} punktów.".format(score))
                     return True, score;
                #dodanie kombinacji kart pokera
+
+            def points(self):
+                cards = self.choose_cards()
+                straight_found, straight_points = self.straight(cards)
+                flush_found, flush_points = self.flush(cards)
+                if straight_found and flush_found:
+                    royal_found, royal_points = self.royal_flush(cards)
+                    if royal_found:
+                        return royal_points
+                    else:
+                        return 900
+                elif straight_found:
+                    return straight_points
+                elif flush_found:
+                    return flush_points
+                pairs_found, pairs_points = self.pair_or_three_of_a_kind(cards, self.symbols)
+                if pairs_found:
+                    return pairs_points
+                high_found, high_points = self.high_card(cards)
+                return high_points
