@@ -15,3 +15,7 @@ def pair_or_three_of_a_kind(self, cards: [Card], symbols):
         score = 200
         if len(cards) != 5:
             return False, 0;
+        value_dict = dict([(x,0) for x in symbols])
+            for die in cards:
+                  value_dict[die.symbol] += 1
+            set_dict = dict([(x, 0) for x in range(0, 6)])
