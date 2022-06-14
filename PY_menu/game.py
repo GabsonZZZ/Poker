@@ -16,6 +16,58 @@ class Game:
                          Card(suits_values[suit], card, values[card]))  # Dodanie karty o danych wartościach do stosu
                 random.shuffle(self.deck)  # Przetasowanie stosu kart
                 return self.deck
+        def print_table(self,show_dealer_card : bool) -> None:
+                player_size = 20
+                dealer_size = 14
+
+                player_cards = self.players_list[0].cards
+                dealer_cards = self.dealer.cards
+
+                player_n_chars = len(player_cards)
+                dealer_n_chars = len(dealer_cards)
+
+                init_space = int((player_size - dealer_size) / 2) + 2
+
+                self.clear()
+
+                player_hand_chars = ""
+                player_hand_chars += "╱" + int((player_size - 2 * player_n_chars) / 2) * " "
+                flop_chars = ""
+                flop_chars += " "
+                for card in player_cards:
+                    player_hand_chars = player_hand_chars + card.symbol + card.suit +  " "
+                player_hand_chars += (player_size - len(player_hand_chars) + 2) * " " + "╲"
+                for card in self.flop:
+                   flop_chars = flop_chars + card.symbol + card.suit + " "
+                flop_chars += (16 - (len(self.flop) + 2*len(self.flop))) * " " + "╲"
+
+                dealer_hand_chars = " "
+                dealer_hand_chars += "╱" + int((dealer_size - 2 * dealer_n_chars) / 2) * " "
+                if show_dealer_card == True:
+                    for card in dealer_cards:
+                        dealer_hand_chars = dealer_hand_chars + card.symbol + card.suit + " "
+                else:
+                    dealer_hand_chars = dealer_hand_chars + "[?] [?]"
+                dealer_hand_chars += (dealer_size - len(dealer_hand_chars) + 1) * " " + "╲"
+
+                print(init_space * " " + (dealer_size - 1) * "_")
+                print("   " + dealer_hand_chars)
+                print("   ╱               ╲    Bet: {" + str(2*self.players_list[0].bet) + "}\n  ╱" + flop_chars + "\n ╱                   ╲   ")
+                print(player_hand_chars)
+                print((player_size + 3) * chr(8254))
+        def royal_flush(self, cards: [Card]):
+                score = 1000
+                cards.sort(key=lambda x: x.value)
+                card1 = cards[0]
+                if len(cards) != 5:
+                    return False, 0;
+                if card1.value != 10:
+                    return False, 0;
+                for card in cards:
+                    if not (card.value == 10 or card.value == 11 or card.value == 12 or card.value == 13 or card.value == 14):
+                        return False, 0;
+                print("Royal Flush! Otrzymujesz {} punktów.".format(score))
+                return True, score;
 
 
         def pair_or_three_of_a_kind(self, cards: [Card], symbols):
@@ -31,6 +83,23 @@ class Game:
                 if set_dict[2] == 1 and set_dict[3] != 1 and set_dict[4] != 1:
                     print("Pair! Otrzymujesz {} punktów.".format(score))
                     return True, score;                     #do zmiany po ustaleniu wartości score
+                
+            def straight(self, cards: [Card]):
+                score = 500
+                if len(cards) != 5:
+                    return False, 0;
+                cards.sort(key=lambda x: x.value)
+                i = cards[0].value
+                found = cards[0].value == i and cards[1].value == i+1 and cards[2].value == i+2 and cards[3].value == i+3 and cards[4].value == i+4
+                if found == False:
+                    if cards[4].value == 14:
+                        i = 1
+                        found = cards[0].value == i+1 and cards[1].value == i+2 and cards[2].value == i+3 and cards[3].value == i+4
+                if found:
+                    print("Straight! Otrzymujesz {} punktów.".format(score))
+                    return True, score;
+                else:
+                    return False, 0;
                 elif set_dict[3] == 1 and set_dict[4] != 1:
                     score = 400
                     print("Three of a kind! Otrzymujesz {} punktów.".format(score))
