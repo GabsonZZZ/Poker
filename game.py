@@ -42,3 +42,12 @@ def pair_or_three_of_a_kind(self, cards: [Card], symbols):
             return True, score;
         else:
             return False, 0;
+
+    def high_card(self, cards: [Card]):
+        score = 1
+        card1 = cards[0]
+        if len(cards) != 5:
+            return False, 0;
+        score = max([card.value for card in cards])
+        print("High Card! Otrzymujesz {} punktów.".format(score))     #do zmiany po ustaleniu wartości score
+        return True, score;
