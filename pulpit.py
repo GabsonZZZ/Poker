@@ -47,4 +47,6 @@ def start_pulpit():
             clear()
             continue
     return (players_list, number_of_decks)
-  
+
+def end_pulpit():
+    pass  
